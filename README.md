@@ -52,7 +52,7 @@ Esta é a forma mais rápida se você já tem o **Android Studio** e o ambiente 
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/target.git](https://github.com/seu-usuario/target.git)
+    git clone [https://github.com/Joao-Victor-Queiroz/target-app-react-native](https://github.com/Joao-Victor-Queiroz/target-app-react-native)
     cd target
     ```
 
