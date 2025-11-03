@@ -17,3 +17,32 @@ jobs:
 
       - name: Verificar a conexão com o Google
         run: curl -I https://www.google.com
+  sast_codeql:
+    name: Analise SAST (CodeQL)
+    runs-on: ubuntu-latest
+    permissions: 
+      security-events: write
+      actions: read
+      contents: read
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Inicializar CodeQL
+        uses: github/codeql-action/init@v3
+        with: 
+          languages: javascript-typescript
+      
+      - name: Executar analise CodeQL
+        uses: github/codeql-action/analyze@v3
+        
+  dast_zap_scan:
+    name: Analise DAST
+    runs-on: ubuntu-latest
+
+    steps:
+      - name:
+        uses: zaproxy/action-baseline@v0.11.0
+        with: 
+          target: 'http://testphp.vulnweb.com'
+          fail_action: true
